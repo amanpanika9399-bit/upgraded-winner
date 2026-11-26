@@ -45,8 +45,10 @@ function resolvePath(urlPath) {
   } catch {
     return null;
   }
+  if (decoded.includes('\0')) return null;
+  // Reject traversal segments outright instead of silently normalising them.
+  if (decoded.split('/').includes('..')) return null;
   const normalised = path.posix.normalize(decoded);
-  if (normalised.includes('\0')) return null;
   const rel = normalised.replace(/^\/+/, '');
   const full = path.join(ROOT, rel);
   if (full !== ROOT && !full.startsWith(ROOT + path.sep)) return null;
