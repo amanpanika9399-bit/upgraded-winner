@@ -1,0 +1,15 @@
+{
+  "name": "sovrns-merch",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sovrns Merch - single-page training gear storefront",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node scripts/build.js",
+    "test": "node test/site.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
